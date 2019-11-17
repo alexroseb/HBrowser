@@ -1,9 +1,10 @@
+<?php
 use Omeka\Module\AbstractModule;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\Controller\AbstractController;
 
-class Module extends AbstractModule
-{
+//class Module extends AbstractModule
+//{
     /** Module body **/
 
     /**
@@ -12,10 +13,10 @@ class Module extends AbstractModule
      * @param ViewModel $view
      * @return string
      */
-    public function getConfigForm(ViewModel $view)
-    {
-        return '<input name="foo">';
-    }
+//    public function getConfigForm(ViewModel $view)
+//    {
+//       # return '<input name="foo">';
+//    }
 
     /**
      * Handle this module's configuration form.
@@ -23,8 +24,8 @@ class Module extends AbstractModule
      * @param AbstractController $controller
      * @return bool False if there was an error during handling
      */
-    public function handleConfigForm(AbstractController $controller)
-    {
-        return true;
-    }
-}
+//    public function handleConfigForm(AbstractController $controller)
+//    {
+//        return true;
+//   }
+//}
