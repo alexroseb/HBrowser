@@ -15,7 +15,7 @@ class ConfigForm extends Form
                         'label' => 'Woohoo!', // @translate
                     ],
             'attributes' => [
-                'checked' => $this->globalSettings->get('hbrowser_setting') ? 'checked' : '',
+                // 'checked' => $this->globalSettings->get('hbrowser_setting') ? 'checked' : '',
                 'id' => 'hbrowser-setting',
             ],
         ]);

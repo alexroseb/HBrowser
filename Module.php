@@ -13,9 +13,9 @@ use Omeka\Permissions\Acl;
 
 class Module extends AbstractModule {
 
-    public function getConfig() {
-        return include __DIR__.'/config/module.config.php';
-    }
+    // public function getConfig() {
+    //     return include __DIR__.'/config/module.config.php';
+    // }
 
     public function handleConfigForm(AbstractController $controller) {
         $params = $controller->params()->fromPost();
@@ -51,3 +51,4 @@ class Module extends AbstractModule {
     //     $view = $event->getTarget();
     //     $view->headLink()->appendStylesheet($view->assetUrl('css/hbrowser.css', 'HBrowser'));
     // }
+}
