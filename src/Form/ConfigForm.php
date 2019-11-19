@@ -6,17 +6,17 @@ use Zend\Form\Form;
 class ConfigForm extends Form
 {
     protected $globalSettings;
+
     public function init()
     {
         $this->add([
-            'type' => 'checkbox',
-            'name' => 'hbrowser_item',
+            'name' => 'hbrowser_parentids',
             'options' => [
-                        'label' => 'Woohoo!', // @translate
+                        'label' => 'Parent Property ID(s)',
+                        'info' => 'Separated by commas',
                     ],
             'attributes' => [
-                // 'checked' => $this->globalSettings->get('hbrowser_setting') ? 'checked' : '',
-                'id' => 'hbrowser-setting',
+                // 'text' => $this->globalSettings->get('hbrowser_parentids'),
             ],
         ]);
     }

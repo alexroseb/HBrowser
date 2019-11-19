@@ -13,29 +13,24 @@ use Omeka\Permissions\Acl;
 
 class Module extends AbstractModule {
 
-    // public function getConfig() {
-    //     return include __DIR__.'/config/module.config.php';
-    // }
-
     public function handleConfigForm(AbstractController $controller) {
         $params = $controller->params()->fromPost();
-        if (isset($params['propertyIds'])) {
-            $propertyIds = $params['propertyIds'];
+        if (isset($params['hbrowser_parentids'])) {
+            $parentIds = $params['hbrowser_parentids'];
         } else {
-            $propertyIds = [];
+            $parentIds = "";
         }
         $globalSettings = $this->getServiceLocator()->get('Omeka\Settings');
-        $globalSettings->set('hbrowser_setting', $params['hbrowser_setting']);
+        $globalSettings->set('hbrowser_parentids', $parentIds);
     }
 
     public function getConfigForm(PhpRenderer $renderer)
     {
         $globalSettings = $this->getServiceLocator()->get('Omeka\Settings');
-        $escape = $renderer->plugin('escapeHtml');
         $html = '';
         $formElementManager = $this->getServiceLocator()->get('FormElementManager');
         $form = $formElementManager->get(ConfigForm::class, []);
-        $html .= "<p>" . $translator->translate("This is a form?") . "</p>";
+        $html .= "<p> Get the below ID's from the site database. In the property table, search for the label(s), then put the corresponding ID(s) here.</p>";
         $html .= $renderer->formCollection($form, false);
 
         return $html;
