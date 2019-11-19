@@ -32,12 +32,7 @@ class Module extends AbstractModule {
     {
         $globalSettings = $this->getServiceLocator()->get('Omeka\Settings');
         $escape = $renderer->plugin('escapeHtml');
-        $translator = $this->getServiceLocator()->get('MvcTranslator');
         $html = '';
-        // $html .= "<script type='text/javascript'>
-        // var filteredPropertyIds = $filteredPropertyIds;
-        // </script>
-        // ";
         $formElementManager = $this->getServiceLocator()->get('FormElementManager');
         $form = $formElementManager->get(ConfigForm::class, []);
         $html .= "<p>" . $translator->translate("This is a form?") . "</p>";
@@ -46,9 +41,9 @@ class Module extends AbstractModule {
         return $html;
     }
 
-    // public function addCSS($event)
-    // {
-    //     $view = $event->getTarget();
-    //     $view->headLink()->appendStylesheet($view->assetUrl('css/hbrowser.css', 'HBrowser'));
-    // }
+    public function addCSS($event)
+    {
+        $view = $event->getTarget();
+        $view->headLink()->appendStylesheet($view->assetUrl('css/hbrowser.css', 'HBrowser'));
+    }
 }
