@@ -7,33 +7,43 @@ use Omeka\Entity\Value;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Mvc\Controller\AbstractController;
 use Zend\View\Renderer\PhpRenderer;
+use Zend\EventManager\Event;
 use Zend\EventManager\SharedEventManagerInterface;
 use Zend\Mvc\MvcEvent;
 use Omeka\Permissions\Acl;
 
 class Module extends AbstractModule {
 
+    public function getConfig(){
+        return include __DIR__ . '/config/module.config.php';
+    }
+
     public function handleConfigForm(AbstractController $controller) {
-        $params = $controller->params()->fromPost();
-        if (isset($params['hbrowser_parentids'])) {
-            $parentIds = $params['hbrowser_parentids'];
-        } else {
-            $parentIds = "";
-        }
+        $params = $controller->params()->fromPost('h-properties
+            ', []);
+        // if (isset($params['hbrowser_parentids'])) {
+        //     $parentIds = $params['hbrowser_parentids'];
+        // } else {
+        //     $parentIds = "";
+        // }
         $globalSettings = $this->getServiceLocator()->get('Omeka\Settings');
-        $globalSettings->set('hbrowser_parentids', $parentIds);
+        // $globalSettings->set('hbrowser_parentids', $parentIds);
+        $globalSettings->set('h_properties_properties', $params);
     }
 
     public function getConfigForm(PhpRenderer $renderer)
     {
         $globalSettings = $this->getServiceLocator()->get('Omeka\Settings');
-        $html = '';
-        $formElementManager = $this->getServiceLocator()->get('FormElementManager');
-        $form = $formElementManager->get(ConfigForm::class, []);
-        $html .= "<p> Get the below ID's from the site database. In the property table, search for the label(s), then put the corresponding ID(s) here.</p>";
-        $html .= $renderer->formCollection($form, false);
+        // $html = '';
+        // $formElementManager = $this->getServiceLocator()->get('FormElementManager');
+        // $form = $formElementManager->get(ConfigForm::class, []);
+        // $html .= "<p> Get the below ID's from the site database. In the property table, search for the label(s), then put the corresponding ID(s) here.</p>";
+        // $html .= $renderer->formCollection($form, false);
 
-        return $html;
+        // return $html;
+
+        $hProperties = $globalSettings->get('h_properties_properties', []);
+        return $renderer->render('hbrowser/config-form', ['hProperties' => $hProperties]);
     }
 
     public function addCSS($event)

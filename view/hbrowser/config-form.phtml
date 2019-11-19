@@ -1,0 +1,8 @@
+<?php echo $this->headScript()->appendFile($this->assetUrl('js/hbrowserform.js', 'HBrowser')); ?>
+<p>Properties selected here will be used as parent properties.
+</p>
+<div id="hier-properties-list" data-h-properties="<?php echo $this->escapeHtml(json_encode($this->hProperties)); ?>">
+</div>
+<input type="hidden" name="ignore">
+
+<?php echo $this->propertySelector(); ?>
