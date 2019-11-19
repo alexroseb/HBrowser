@@ -1,9 +1,16 @@
 <?php
 
+namespace HBrowser;
+
 return [
 	'view_manager' => [
         'template_path_stack' => [
-            OMEKA_PATH.'/modules/HBrowser/view',
+            dirname(__DIR__) . '/view',
+        ],
+    ],
+    'block_layouts' => [
+        'invokables' => [
+        	'hBrowserSidebar' => Site\BlockLayout\HBrowserSidebar::class,
         ],
     ],
 
