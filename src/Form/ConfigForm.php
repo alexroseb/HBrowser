@@ -7,21 +7,21 @@ class ConfigForm extends Form
 {
     protected $globalSettings;
 
-    public function init()
-    {
+    public function init() {
+        $placeholder = "yeet";
+        // $placeholder = $this->globalSettings->get('hbrowser_parentids');
         $this->add([
             'name' => 'hbrowser_parentids',
             'options' => [
-                        'label' => 'Parent Property ID(s)',
-                        'info' => 'Separated by commas',
+                        'label' => 'Parent Property ID(s), separated by commas',
                     ],
             'attributes' => [
-                // 'text' => $this->globalSettings->get('hbrowser_parentids'),
+                'value' => $placeholder,
             ],
         ]);
     }
-    public function setGlobalSettings($globalSettings)
-    {
+
+    public function setGlobalSettings($globalSettings) {
         $this->globalSettings = $globalSettings;
     }
 }
