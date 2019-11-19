@@ -28,12 +28,9 @@ class Module extends AbstractModule {
     {
         $globalSettings = $this->getServiceLocator()->get('Omeka\Settings');
         $html = '';
-
-        $html .= $globalSettings->get("hbrowser_parentids");
-
         $formElementManager = $this->getServiceLocator()->get('FormElementManager');
         $form = $formElementManager->get(ConfigForm::class, []);
-        $html .= "<p> Get the below ID(s) from the site database: within the property table, search for the label(s), then put the corresponding ID(s) here.</p>";
+        $html .= "<p> Get the below ID(s) from the site database: within the property table, search for the label(s), then put the corresponding ID(s) here. <br/> Current parent ids: " . $globalSettings->get("hbrowser_parentids") . "</p>";
         $html .= $renderer->formCollection($form, false);
 
         return $html;

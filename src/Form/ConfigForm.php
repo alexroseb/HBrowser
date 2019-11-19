@@ -8,15 +8,13 @@ class ConfigForm extends Form
     protected $globalSettings;
 
     public function init() {
-        $placeholder = "yeet";
-        // $placeholder = $this->globalSettings->get('hbrowser_parentids');
         $this->add([
             'name' => 'hbrowser_parentids',
             'options' => [
                         'label' => 'Parent Property ID(s), separated by commas',
                     ],
             'attributes' => [
-                'value' => $placeholder,
+                // 'value' => $placeholder,
             ],
         ]);
     }
