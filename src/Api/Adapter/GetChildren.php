@@ -1,5 +1,5 @@
 <?php
-namespace HBrowser\Api;
+namespace HBrowser\Api\Adapter;
 
 use Omeka\Api\Request;
 use Zend\ServiceManager\ServiceManager;
