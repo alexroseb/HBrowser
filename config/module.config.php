@@ -13,5 +13,10 @@ return [
         	'hBrowserSidebar' => Site\BlockLayout\HBrowserSidebar::class,
         ],
     ],
+    'api_adapters' => [
+        'invokables' => [
+            'getChildren' => Api\Adapter\GetChildren::class,
+        ],
+    ],
 
 ];
