@@ -55,7 +55,7 @@ class Module extends AbstractModule {
 
     public function handleViewShowAfter(Event $event) {
         // echo $this->getChildren($site, 37);
-        $childrenclass = $this->getServiceLocator()->get(GetChildren::class);
+        $childrenclass = $this->getServiceLocator()->get('HBrowser\Api\Adapter\GetChildren');
         echo $childrenclass->getChildren(37);
         // echo $renderer->partial('hbrowser/hbrowser-sidebar');
     }
