@@ -2,7 +2,7 @@
 namespace HBrowser;
 
 use HBrowser\Form\ConfigForm;
-// use HBrowser\Api\Adapter\GetChildren;
+use HBrowser\Api\Adapter\GetChildren;
 use Omeka\Module\AbstractModule;
 use Omeka\Entity\Value;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -55,8 +55,8 @@ class Module extends AbstractModule {
 
     public function handleViewShowAfter(Event $event) {
         // echo $this->getChildren($site, 37);
-        $childrenclass = $this->getServiceLocator();//->get(GetChildren::class);
-        // echo $childrenclass->getChildren(37);
+        $childrenclass = $this->getServiceLocator()->get(GetChildren::class);
+        echo $childrenclass->getChildren(37);
         // echo $renderer->partial('hbrowser/hbrowser-sidebar');
     }
 

@@ -10,12 +10,15 @@ return [
     ],
     'block_layouts' => [
         'invokables' => [
-        	'hBrowserSidebar' => Site\BlockLayout\HBrowserSidebar::class,
+        	'hBrowserSidebar' => 'HBrowser\Site\BlockLayout\HBrowserSidebar::class',
         ],
     ],
     'api_adapters' => [
         'invokables' => [
-            'getChildren' => Api\Adapter\GetChildren::class,
+            'getChildren' => 'HBrowser\Api\Adapter\GetChildren::class',
+        ],
+        'factories' => [
+            'HBrowser\Api\Adapter\GetChildren' => 'HBrowser\Service\Api\GetChildrenFactory',
         ],
     ],
 
