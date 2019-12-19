@@ -51,13 +51,20 @@ class Module extends AbstractModule {
             'view.show.after',
             [$this, 'handleViewShowAfter']
         );
+        // $sharedEventManager->attach(
+        //     '*',
+        //     'api.context',
+        //     [$this, 'addApiContext']
+        // );
     }
 
     public function handleViewShowAfter(Event $event) {
         // echo $this->getChildren($site, 37);
-        $childrenclass = $this->getServiceLocator();//->get(GetChildren::class);
+        // $childrenclass = $this->getServiceLocator();//->get(GetChildren::class);
         // echo $childrenclass->getChildren(37);
         // echo $renderer->partial('hbrowser/hbrowser-sidebar');
+        // $context = $event->getParams();
+        // print_r($context);
     }
 
     public function addCSS($event)

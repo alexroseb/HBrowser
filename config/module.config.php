@@ -13,9 +13,9 @@ return [
         	'hBrowserSidebar' => Site\BlockLayout\HBrowserSidebar::class,
         ],
     ],
-    'api_adapters' => [
-        'invokables' => [
-            'getChildren' => Api\Adapter\GetChildren::class,
+    'controllers' => [
+        'factories' => [
+            'HBrowser\Controller\Api' => Service\Controller\HBrowserApiControllerFactory::class,
         ],
     ],
 
