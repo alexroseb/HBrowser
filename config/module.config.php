@@ -18,5 +18,10 @@ return [
             'getChildren' => Api\Adapter\GetChildren::class,
         ],
     ],
+    'service_manager' => [
+        'factories' => [
+            'HBrowser\ApiManager' => Service\HBApiManagerFactory::class,
+        ],
+    ],
 
 ];
